@@ -28,6 +28,11 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeDto,HttpStatus.OK);
     }
 
+    @GetMapping("/")
+    public String test(){
+        return "Backend Working";
+    }
+
     @GetMapping
     public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
         List<EmployeeDto> employees=employeeService.getAllEmployees();
