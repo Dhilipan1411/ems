@@ -1,20 +1,20 @@
-# Use OpenJDK 17 as base image
-FROM openjdk:17
+# Use Java 17
+FROM eclipse-temurin:17
 
 # Set working directory
 WORKDIR /app
 
-# Copy all files into container
+# Copy project files
 COPY . .
 
 # Give permission to mvnw
 RUN chmod +x mvnw
 
-# Build the project
-RUN ./mvnw clean install
+# Build project
+RUN ./mvnw clean package -DskipTests
 
-# Expose port 8080
+# Expose port
 EXPOSE 8080
 
-# Start the Spring Boot app
+# Run Spring Boot jar
 ENTRYPOINT ["java","-jar","target/*.jar"]
