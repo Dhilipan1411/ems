@@ -1,5 +1,5 @@
 # Use Java 17
-FROM eclipse-temurin:17
+FROM eclipse-temurin:21
 
 # Set working directory
 WORKDIR /app
